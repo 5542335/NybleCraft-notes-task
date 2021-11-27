@@ -6,6 +6,9 @@
   display: flex;
   flex-direction: column;
 }
+.add-note-btn {
+  align-self: center;
+}
 .note-container {
-  justify-self: center;
+  align-self: center;
 }

@@ -1,5 +1,7 @@
 import { NoteContainer } from './components/notes/noteContainer/NoteContainer';
 import { NoteCard } from './components/notes/noteCard/NoteCard';
+import { AddNoteBtn } from './components/addNoteBtn/AddNoteBtn';
+import { Header } from './components/header/Header';
 
 import './App.scss';
 
@@ -23,10 +25,18 @@ const testData = [
 
 export const App = () => (
   <div className="app-container">
-    <NoteContainer>
-      {testData.map(({ title, description, tags }) => (
-        <NoteCard tags={tags} title={title} description={description} />
-      ))}
-    </NoteContainer>
+    <div className="header-container">
+      <Header />
+    </div>
+    <div className="add-note-btn">
+      <AddNoteBtn />
+    </div>
+    <div className="note-container">
+      <NoteContainer>
+        {testData.map(({ title, description, tags }) => (
+          <NoteCard key={title} tags={tags} title={title} description={description} />
+        ))}
+      </NoteContainer>
+    </div>
   </div>
 );

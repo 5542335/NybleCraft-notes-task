@@ -1,0 +1,10 @@
+.container {
+    border: 2px solid orange;
+    width: min-content;
+    padding: 5px;
+    border-radius: 17px;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 5px orange;
+    }
+}

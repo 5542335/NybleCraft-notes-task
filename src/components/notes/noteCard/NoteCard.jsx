@@ -20,8 +20,14 @@ export const NoteCard = ({ title, description, tags }) => {
           </button>
         </div>
       </div>
-      <div className={styles.description} onClick={editText}>
-        {editDesciption ? <EditingDescription /> : <div>{description}</div>}
+      <div className={styles.description}>
+        {editDesciption ? (
+          <EditingDescription setEditDescription={setEditDescription} description={description} />
+        ) : (
+          <div onClick={editText} style={{ backgroundColor: '#edffd9' }}>
+            {description}
+          </div>
+        )}
       </div>
       <div className={styles.tags}>{tags}</div>
     </div>

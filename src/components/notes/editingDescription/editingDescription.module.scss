@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.buttonContainer {
+    display: flex;
+    align-self: flex-end;
+}
