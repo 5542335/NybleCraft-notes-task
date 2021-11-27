@@ -6,6 +6,11 @@
   display: flex;
   flex-direction: column;
 }
+.header-container {
+  width: 90vw;
+  align-self: center;
+  margin-top: 5px;
+}
 .add-note-btn {
   align-self: center;
 }

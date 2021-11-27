@@ -8,17 +8,17 @@ import './App.scss';
 const testData = [
   {
     description: 'description1efwfewfdcewdfewvewffgsrfcwfewfwfgw',
-    tags: 'tags1',
+    tags: ['tags1', 'tag546'],
     title: 'title134235353253252421342',
   },
   {
     description: 'description2',
-    tags: 'tags2',
+    tags: ['tags2', 'qwerty'],
     title: 'title2',
   },
   {
     description: 'description3',
-    tags: 'tags3',
+    tags: ['tags3', 'rtyui'],
     title: 'title3',
   },
 ];
@@ -26,7 +26,7 @@ const testData = [
 export const App = () => (
   <div className="app-container">
     <div className="header-container">
-      <Header />
+      <Header testData={testData} />
     </div>
     <div className="add-note-btn">
       <AddNoteBtn />
