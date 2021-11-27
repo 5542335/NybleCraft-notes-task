@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    height: min-content;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid teal;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.cardHeader {
+    display: flex;
+    height: 20px;
+    margin-left: 40px;
+    .title {
+        justify-self: center;
+    }
+    .buttons {
+        align-self: flex-end;
+        margin-left: auto;
+    }
+    button {
+        border: none;
+        background-color: inherit;
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}
+.description {
+    width: min-content;
+    background-color: #edffd9;
+    border-radius: 5px;
+    overflow-wrap: break-word;
+    margin: 10px;
+    &:hover {
+        cursor: url("./icons/cursor-pencil.png") 2 2, pointer;
+    }
+}
+.tags {
+    margin: 0 10px 5px 10px;
+}

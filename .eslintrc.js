@@ -116,6 +116,7 @@ module.exports = {
       },
     ],
     'react/jsx-props-no-spreading': [2],
+    'react/prop-types': [0],
     'react/react-in-jsx-scope': [0],
     'react/state-in-constructor': [0],
     'sort-keys-fix/sort-keys-fix': 2,
