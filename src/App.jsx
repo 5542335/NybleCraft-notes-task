@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import { NoteContainer } from './components/notes/noteContainer/NoteContainer';
-import { AddNoteBtn } from './components/addNoteBtn/AddNoteBtn';
 import { HashTags } from './components/hashTags/HashTags';
 import { NoteProvider } from './context/noteContext';
+import { Header } from './components/header/Header';
 
 import './App.scss';
 
@@ -37,8 +37,8 @@ export const App = () => {
   return (
     <NoteProvider value={{ notes, setNotes }}>
       <div className="app-container">
+        <Header />
         <HashTags className="hash-tags-container" selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
-        <AddNoteBtn className="add-note-btn" />
         <NoteContainer className="note-container" selectedTag={selectedTag} />
       </div>
     </NoteProvider>

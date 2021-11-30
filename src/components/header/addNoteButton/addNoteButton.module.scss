@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    margin-left: auto;
+    .btn {
+        width: 150px;
+        height: 100%;
+        background-color:#008000;
+        border: none;
+        border-radius: 20px 0 0 20px;
+        color: white;
+        font-size: 3rem;
+        font-weight: bolder;
+        &:hover {
+            opacity: 0.9;
+            cursor: pointer;
+            box-shadow: 0 0 10px #008000;
+            border: 2px solid teal;
+        }
+    }
+}
