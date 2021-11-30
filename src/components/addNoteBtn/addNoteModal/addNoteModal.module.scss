@@ -11,20 +11,22 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.5s;
-}
-.modal.open {
-    opacity: 1;
-    z-index: 2;
-    pointer-events: all;
+    &.open {
+        opacity: 1;
+        z-index: 2;
+        pointer-events: all;
+    }
 }
 .modalContent {
     padding: 20px;
     border-radius: 12px;
     background-color: white;
-    width: auto;
+    width: 800px;
+    height: min-content;
     transform: scale(0.8);
     transition: 0.4s all;
-}
-.modalContent.open {
-    transform: scale(1);
+    &.open {
+        transform: scale(1);
+
+    }
 }

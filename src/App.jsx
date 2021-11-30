@@ -1,42 +1,46 @@
+import { useState } from 'react';
+
 import { NoteContainer } from './components/notes/noteContainer/NoteContainer';
-import { NoteCard } from './components/notes/noteCard/NoteCard';
 import { AddNoteBtn } from './components/addNoteBtn/AddNoteBtn';
-import { Header } from './components/header/Header';
+import { HashTags } from './components/hashTags/HashTags';
+import { NoteProvider } from './context/noteContext';
 
 import './App.scss';
 
 const testData = [
   {
-    description: 'description1efwfewfdcewdfewvewffgsrfcwfewfwfgw',
-    tags: ['tags1', 'tag546'],
+    description: 'description1efwfewfdcewdfewvewffgsrfcwfewfwf',
+    tags: ['#tags1', '#tags1', '#tag546'],
     title: 'title134235353253252421342',
   },
   {
     description: 'description2',
-    tags: ['tags2', 'qwerty'],
+    tags: ['#tags1', '#qwerty'],
     title: 'title2',
   },
   {
     description: 'description3',
-    tags: ['tags3', 'rtyui'],
+    tags: ['#tags3', '#rtyui'],
     title: 'title3',
+  },
+  {
+    description: 'description4',
+    tags: ['#tags4', '#rtyuu', '#rfvbgt'],
+    title: 'title4',
   },
 ];
 
-export const App = () => (
-  <div className="app-container">
-    <div className="header-container">
-      <Header testData={testData} />
-    </div>
-    <div className="add-note-btn">
-      <AddNoteBtn />
-    </div>
-    <div className="note-container">
-      <NoteContainer>
-        {testData.map(({ title, description, tags }) => (
-          <NoteCard key={title} tags={tags} title={title} description={description} />
-        ))}
-      </NoteContainer>
-    </div>
-  </div>
-);
+export const App = () => {
+  const [notes, setNotes] = useState(testData);
+  const [selectedTag, setSelectedTag] = useState();
+
+  return (
+    <NoteProvider value={{ notes, setNotes }}>
+      <div className="app-container">
+        <HashTags className="hash-tags-container" selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
+        <AddNoteBtn className="add-note-btn" />
+        <NoteContainer className="note-container" selectedTag={selectedTag} />
+      </div>
+    </NoteProvider>
+  );
+};

@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 const defaultStyle = {
-  backgroundColor: 'MediumAquamarine',
+  backgroundColor: 'WhiteSmoke',
+  'box-sizing': 'border-box',
   display: 'block',
   overflow: 'hidden',
   padding: '5px',
@@ -9,7 +10,7 @@ const defaultStyle = {
   width: '100%',
 };
 
-export const AutoHeightTextarea = ({ style = defaultStyle, description }) => {
+export const AutoHeightTextarea = ({ style = defaultStyle, description = '', onChange }) => {
   const textareaRef = useRef(null);
   const [currentValue, setCurrentValue] = useState('');
 
@@ -20,9 +21,14 @@ export const AutoHeightTextarea = ({ style = defaultStyle, description }) => {
     textareaRef.current.style.height = `${scrollHeight}px`;
   }, [currentValue]);
 
-  const editDescription = useCallback((e) => {
-    setCurrentValue(e.target.value);
-  }, []);
+  const editDescription = useCallback(
+    (e) => {
+      setCurrentValue(e.target.value);
+
+      onChange?.(e);
+    },
+    [onChange],
+  );
 
   return <textarea ref={textareaRef} style={style} defaultValue={description} onChange={editDescription} />;
 };

@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+}
+.inputDescription {
+    margin-top: 10px;
+}
+.buttons {
+    margin-top: 10px;
+}

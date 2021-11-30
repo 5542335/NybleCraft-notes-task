@@ -30,15 +30,17 @@
     }
 }
 .description {
-    width: min-content;
-    // background-color: #edffd9;
+    width: max-content;
     border-radius: 5px;
     overflow-wrap: break-word;
     margin: 10px;
     &:hover {
-        cursor: url("./icons/cursor-pencil.png") 2 2, pointer;
+        cursor: url("../../../icons/cursor-pencil.png") 2 2, pointer;
     }
 }
 .tags {
     margin: 0 10px 5px 10px;
+}
+.hide {
+    display: none;
 }
