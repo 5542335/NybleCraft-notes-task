@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 
-import styles from './noteContainer.module.scss';
 import { useNotes } from '../../../hooks/useNotes';
 import { NoteCard } from '../noteCard/NoteCard';
+import styles from './noteContainer.module.scss';
 
-export const NoteContainer = ({ className, selectedTag }) => {
+export const NoteContainer = ({ selectedTag }) => {
   const { notes, setNotes } = useNotes();
 
   const deleteCard = (title) => () => {
@@ -19,7 +19,7 @@ export const NoteContainer = ({ className, selectedTag }) => {
   );
 
   return (
-    <div className={`${styles.container} ${className}`}>
+    <div className={styles.container}>
       {filteredNotes.map(({ title, description, tags }, index) => (
         <NoteCard
           key={title}

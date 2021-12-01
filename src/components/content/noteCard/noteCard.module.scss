@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    height: 230px;
+    width: 180px;
+    padding: 5px;
+    border: 2px solid teal;
+    border-radius: 5px;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    &:hover {
+        z-index: 1;
+        width: 190px;
+        min-height: 230px;
+        height: min-content;
+        background-color: white;
+        overflow-wrap: break-word;
+    }
+}
+.cardHeader {
+    display: flex;
+    height: min-content;
+    margin-left: 40px;
+    .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 22px;
+    }
+    .deleteCardBtn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 3px;
+        align-self: flex-end;
+        border: none;
+        background-color: inherit;
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}
+.description {
+    width: 100%;
+    border-radius: 5px;
+    height: min-content;
+    margin: 10px 5px 5px 0;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    &:hover {
+        cursor: url("../../../icons/cursor-pencil.png") 2 2, pointer;
+    }
+}
+.tags {
+    margin: auto 10px 10px 10px;
+    min-height: 20px;
+    height: min-content;
+    border-top: 1px solid orange;
+}
+.hide {
+    display: none;
+}

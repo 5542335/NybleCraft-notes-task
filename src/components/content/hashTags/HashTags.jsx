@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 
-import { useNotes } from '../../hooks/useNotes';
-import { Chip } from '../notes/shared/chip/Chip';
+import { useNotes } from '../../../hooks/useNotes';
+import { Chip } from '../../../shared/chip/Chip';
 import styles from './hashTags.module.scss';
 
 export const HashTags = ({ className, selectedTag, setSelectedTag }) => {

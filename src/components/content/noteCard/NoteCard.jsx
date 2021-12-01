@@ -14,11 +14,9 @@ export const NoteCard = ({ title, description, tags, deleteCard, index }) => {
     <div className={styles.container}>
       <div className={styles.cardHeader}>
         <div className={styles.title}>{title}</div>
-        <div className={styles.buttons}>
-          <button type="button" onClick={deleteCard}>
-            <img src="https://img.icons8.com/office/16/000000/delete-sign.png" alt="" />
-          </button>
-        </div>
+        <button type="button" className={styles.deleteCardBtn} onClick={deleteCard}>
+          <img src="https://img.icons8.com/office/16/000000/delete-sign.png" alt="" />
+        </button>
       </div>
       <div className={styles.description}>
         {editDesciption ? (

@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
 
 import { useNotes } from '../../../hooks/useNotes';
-import { AutoHeightTextarea } from '../shared/autoHeightTextarea/AutoHeightTextarea';
-import { CustomButton } from '../shared/customButton/CustomButton';
+import { AutoHeightTextarea } from '../../../shared/autoHeightTextarea/AutoHeightTextarea';
+import { CustomButton } from '../../../shared/customButton/CustomButton';
 import styles from './editingDescription.module.scss';
 
 export const EditingDescription = ({ setEditDescription, description, index }) => {

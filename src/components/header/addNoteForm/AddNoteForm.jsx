@@ -2,8 +2,8 @@ import { useCallback, useState } from 'react';
 
 import { useNotes } from '../../../hooks/useNotes';
 import styles from './addNoteForm.module.scss';
-import { AutoHeightTextarea } from '../../notes/shared/autoHeightTextarea/AutoHeightTextarea';
-import { CustomButton } from '../../notes/shared/customButton/CustomButton';
+import { AutoHeightTextarea } from '../../../shared/autoHeightTextarea/AutoHeightTextarea';
+import { CustomButton } from '../../../shared/customButton/CustomButton';
 
 export const AddNoteForm = ({ setOpenModal }) => {
   const { setNotes } = useNotes();
