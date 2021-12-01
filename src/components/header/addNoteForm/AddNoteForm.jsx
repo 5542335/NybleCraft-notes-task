@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useCallback, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { useNotes } from '../../../hooks/useNotes';
 import styles from './addNoteForm.module.scss';
@@ -35,18 +37,17 @@ export const AddNoteForm = ({ setOpenModal }) => {
         .split(' ')
         .filter((item) => item.startsWith('#')) || [];
 
-    setNotes((prevState) => [{ description, tags, title }, ...prevState]);
+    // eslint-disable-next-line sort-keys-fix/sort-keys-fix
+    setNotes((prevState) => [{ id: uuidv4(), description, tags, title }, ...prevState]);
     closeModal();
   }, [setNotes, closeModal, description, title]);
 
   return (
-    <form className={styles.formContainer} onSubmit={addNote}>
-      <div className={styles.inputTitle}>
-        <input type="text" placeholder="Название заметки" onChange={changeTitle} />
-      </div>
-      <div className={styles.inputDescription}>
-        <AutoHeightTextarea description={description} onChange={changeDescription} />
-      </div>
+    <form className={styles.myForm} onSubmit={addNote}>
+      <label htmlFor="title">Название заметки </label>
+      <input type="text" id="title" onChange={changeTitle} />
+      <label htmlFor="description">Описание</label>
+      <AutoHeightTextarea description={description} onChange={changeDescription} />
       <div className={styles.buttons}>
         <CustomButton type="primary" htmlType="submit">
           Добавить заметку

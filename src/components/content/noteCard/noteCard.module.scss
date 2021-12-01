@@ -11,12 +11,16 @@
     box-sizing: border-box;
     position: relative;
     &:hover {
+        .tags {
+            height: min-content;
+        }
         z-index: 1;
         width: 190px;
         min-height: 230px;
         height: min-content;
         background-color: white;
         overflow-wrap: break-word;
+        cursor: default;
     }
 }
 .cardHeader {
@@ -50,15 +54,48 @@
     overflow-x: hidden;
     text-overflow: ellipsis;
     overflow-wrap: break-word;
+    background-color: #edffd9;
     &:hover {
         cursor: url("../../../icons/cursor-pencil.png") 2 2, pointer;
     }
 }
 .tags {
     margin: auto 10px 10px 10px;
-    min-height: 20px;
-    height: min-content;
+    height: 14px;
     border-top: 1px solid orange;
+}
+.addTagBtn {
+    height: 25px;
+    width: 25px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 50%;
+    background-color: green;
+    font-size: 1.2rem;
+    color: white;
+    margin-right: 3px;
+    rotate: 45%;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+.addTagInput {
+    bottom: 2px;
+    width: 105px;
+    border: 1px solid teal;
+    border-radius: 2px;
+}
+.closeIconBtn, .addTagIcon {
+    border: none;
+    background-color: transparent;
+    img {
+        vertical-align: middle;
+    }
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
 }
 .hide {
     display: none;

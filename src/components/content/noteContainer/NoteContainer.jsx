@@ -20,15 +20,8 @@ export const NoteContainer = ({ selectedTag }) => {
 
   return (
     <div className={styles.container}>
-      {filteredNotes.map(({ title, description, tags }, index) => (
-        <NoteCard
-          key={title}
-          tags={tags}
-          title={title}
-          description={description}
-          deleteCard={deleteCard(title)}
-          index={index}
-        />
+      {filteredNotes.map(({ title, description, tags, id }) => (
+        <NoteCard key={id} tags={tags} title={title} id={id} description={description} deleteCard={deleteCard(title)} />
       ))}
     </div>
   );

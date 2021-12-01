@@ -5,36 +5,36 @@ import { AutoHeightTextarea } from '../../../shared/autoHeightTextarea/AutoHeigh
 import { CustomButton } from '../../../shared/customButton/CustomButton';
 import styles from './editingDescription.module.scss';
 
-export const EditingDescription = ({ setEditDescription, description, index }) => {
+export const EditingDescription = ({ setIsEditDescription, description, id }) => {
   const { notes, setNotes } = useNotes();
-  const [newDescription] = useState(description);
+  const [newDescription, setNewDescription] = useState(description);
   const handleCancel = useCallback(() => {
-    setEditDescription(false);
-  }, [setEditDescription]);
+    setIsEditDescription(false);
+  }, [setIsEditDescription]);
 
-  const handleEditDescription = useCallback(() => {
-    const newNotes = [];
+  const editDescription = useCallback((e) => {
+    setNewDescription(e.target.value);
+  }, []);
 
-    [...notes].forEach((note, i) => {
-      if (i === index) {
-        newNotes.push({ ...note, description: newDescription });
-      }
+  const handleUpdateDescription = useCallback(() => {
+    const newNotes = [...notes].map((note) => {
+      if (note.id === id) return { ...note, description: newDescription };
 
-      newNotes.push(note);
+      return note;
     });
 
     setNotes(newNotes);
-    setEditDescription(false);
-  }, [setEditDescription, newDescription, index, notes, setNotes]);
+    handleCancel();
+  }, [id, newDescription, notes, setNotes, handleCancel]);
 
   return (
     <div className={styles.container}>
       <div>
-        <AutoHeightTextarea description={description} />
+        <AutoHeightTextarea description={description} onChange={editDescription} />
       </div>
       <div className={styles.buttonContainer}>
         <CustomButton onClick={handleCancel}>Отмена</CustomButton>
-        <CustomButton type="primary" onClick={handleEditDescription}>
+        <CustomButton type="primary" onClick={handleUpdateDescription}>
           Изменить
         </CustomButton>
       </div>

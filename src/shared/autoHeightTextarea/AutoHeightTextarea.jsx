@@ -1,8 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 const defaultStyle = {
+  '&:hover': {
+    border: '2px solid teal',
+  },
   backgroundColor: 'WhiteSmoke',
-  'box-sizing': 'border-box',
+  border: '1px solid teal',
+  boxSizing: 'border-box',
   display: 'block',
   overflow: 'hidden',
   padding: '5px',
