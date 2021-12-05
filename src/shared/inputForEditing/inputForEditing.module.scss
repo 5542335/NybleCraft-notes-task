@@ -1,0 +1,17 @@
+.addTagInput {
+    bottom: 2px;
+    width: 78px;
+    border: 1px solid teal;
+    border-radius: 2px;
+}
+.closeIconBtn, .addTagIcon {
+    border: none;
+    background-color: transparent;
+    img {
+        vertical-align: middle;
+    }
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}

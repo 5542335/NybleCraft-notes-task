@@ -15,7 +15,7 @@ const testData = [
   },
   {
     id: 'db9t4626-ddfe-4627-9e47-0841740aaa1b',
-    description: 'description2',
+    description: 'description2 #qwerty',
     tags: ['#tags1', '#qwerty'],
     title: 'title2',
   },
@@ -46,7 +46,7 @@ const testData = [
   {
     id: 'db9c4626-ddfe-4627-9e42-0841740aaa1b',
     description: 'description1efwfdcewdfewvewffgsrfcwfewfwf',
-    tags: ['#tags7', '#tags64547', '#ta'],
+    tags: ['#tags7', '#tags64547', '#ta', '#few', '#tyu'],
     title: 'titl2353253221342',
   },
 ];

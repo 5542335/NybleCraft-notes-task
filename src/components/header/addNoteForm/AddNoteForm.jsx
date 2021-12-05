@@ -20,8 +20,8 @@ export const AddNoteForm = ({ setOpenModal }) => {
   );
 
   const changeDescription = useCallback(
-    (e) => {
-      setSescription(e.target.value);
+    (htmlDescription) => {
+      setSescription(htmlDescription.target.value);
     },
     [setSescription],
   );

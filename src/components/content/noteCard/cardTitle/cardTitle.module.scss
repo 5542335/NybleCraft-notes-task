@@ -1,0 +1,23 @@
+.cardHeader {
+    display: flex;
+    height: min-content;
+    .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 22px;
+        cursor: url("../../../../icons/cursor-pencil.png") 2 2, pointer;
+    }
+    .deleteCardBtn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 3px;
+        align-self: flex-end;
+        border: none;
+        background-color: inherit;
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}

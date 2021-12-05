@@ -1,20 +1,16 @@
 import { useCallback, useState } from 'react';
 
 import { useNotes } from '../../../hooks/useNotes';
-import { AutoHeightTextarea } from '../../../shared/autoHeightTextarea/AutoHeightTextarea';
+import { HighlightTextArea } from './highlightTextArea/HighlightTeaxArea';
 import { CustomButton } from '../../../shared/customButton/CustomButton';
 import styles from './editingDescription.module.scss';
 
 export const EditingDescription = ({ setIsEditDescription, description, id }) => {
   const { notes, setNotes } = useNotes();
   const [newDescription, setNewDescription] = useState(description);
-  const handleCancel = useCallback(() => {
+  const handleClose = useCallback(() => {
     setIsEditDescription(false);
   }, [setIsEditDescription]);
-
-  const editDescription = useCallback((e) => {
-    setNewDescription(e.target.value);
-  }, []);
 
   const handleUpdateDescription = useCallback(() => {
     const newNotes = [...notes].map((note) => {
@@ -24,16 +20,14 @@ export const EditingDescription = ({ setIsEditDescription, description, id }) =>
     });
 
     setNotes(newNotes);
-    handleCancel();
-  }, [id, newDescription, notes, setNotes, handleCancel]);
+    handleClose();
+  }, [id, notes, setNotes, handleClose, newDescription]);
 
   return (
     <div className={styles.container}>
-      <div>
-        <AutoHeightTextarea description={description} onChange={editDescription} />
-      </div>
+      <HighlightTextArea text={newDescription} onChange={setNewDescription} />
       <div className={styles.buttonContainer}>
-        <CustomButton onClick={handleCancel}>Отмена</CustomButton>
+        <CustomButton onClick={handleClose}>Отмена</CustomButton>
         <CustomButton type="primary" onClick={handleUpdateDescription}>
           Изменить
         </CustomButton>

@@ -1,0 +1,14 @@
+.autoHeightTextarea {
+    &:hover {
+        border: 2px solid teal;
+    }
+
+    background-color: WhiteSmoke;
+    border: 1px solid teal;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    padding: 5px;
+    resize: none;
+    width: 100%;
+}

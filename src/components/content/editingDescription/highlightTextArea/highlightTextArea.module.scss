@@ -1,0 +1,9 @@
+.highlightInput {
+    border: 1px solid teal;
+    border-radius: 4px;
+    padding: 2px;
+    cursor: pointer;
+    &:active {
+        cursor: default;
+    }
+}
