@@ -87,7 +87,7 @@ export const CardTags = ({ tags, id }) => {
       )}
       {tags.map((tag) =>
         tag === selectedTag ? (
-          <EditingTag setSelectedTag={setSelectedTag} tag={selectedTag} id={id} />
+          <EditingTag tags={tags} setSelectedTag={setSelectedTag} tag={selectedTag} id={id} />
         ) : (
           <div className={styles.tag}>
             <button key={tag} type="button" className={styles.tagTextBtn} onClick={editTag(tag)}>

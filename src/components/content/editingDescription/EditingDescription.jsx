@@ -6,22 +6,16 @@ import { CustomButton } from '../../../shared/customButton/CustomButton';
 import styles from './editingDescription.module.scss';
 
 export const EditingDescription = ({ setIsEditDescription, description, id }) => {
-  const { notes, setNotes } = useNotes();
+  const { updateNoteById } = useNotes();
   const [newDescription, setNewDescription] = useState(description);
   const handleClose = useCallback(() => {
     setIsEditDescription(false);
   }, [setIsEditDescription]);
 
   const handleUpdateDescription = useCallback(() => {
-    const newNotes = [...notes].map((note) => {
-      if (note.id === id) return { ...note, description: newDescription };
-
-      return note;
-    });
-
-    setNotes(newNotes);
+    updateNoteById(id, { description: newDescription || 'Без описания' });
     handleClose();
-  }, [id, notes, setNotes, handleClose, newDescription]);
+  }, [id, updateNoteById, handleClose, newDescription]);
 
   return (
     <div className={styles.container}>

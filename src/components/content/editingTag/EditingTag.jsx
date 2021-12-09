@@ -3,8 +3,8 @@ import { useState, useCallback } from 'react';
 import { InputForEditing } from '../../../shared/inputForEditing/InputForEditing';
 import { useNotes } from '../../../hooks/useNotes';
 
-export const EditingTag = ({ setSelectedTag, tag, id, tagIndex }) => {
-  const { notes, setNotes } = useNotes();
+export const EditingTag = ({ setSelectedTag, tag, id, tags }) => {
+  const { updateNoteById } = useNotes();
   const [editedTag, setEditedTag] = useState([]);
 
   const handleChangeTags = useCallback((e) => {
@@ -12,19 +12,14 @@ export const EditingTag = ({ setSelectedTag, tag, id, tagIndex }) => {
   }, []);
 
   const saveNewTags = useCallback(() => {
-    const newTags = notes.map((note) => {
-      if (note.id === id) {
-        note.tags.splice(tagIndex, 1, editedTag);
+    const tagsCopy = [...tags];
+    const tagIndex = tags.indexOf(tag);
 
-        return note;
-      }
+    tagsCopy[tagIndex] = editedTag;
 
-      return note;
-    });
-
-    setNotes(newTags);
+    updateNoteById(id, { tags: tagsCopy });
     setSelectedTag('');
-  }, [editedTag, id, notes, setNotes, setSelectedTag, tagIndex]);
+  }, [editedTag, id, setSelectedTag, tag, tags, updateNoteById]);
 
   const handleCancel = useCallback(() => {
     setSelectedTag('');
