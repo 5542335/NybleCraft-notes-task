@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import { InputForEditing } from '../../../shared/inputForEditing/InputForEditing';
 import { useNotes } from '../../../hooks/useNotes';

@@ -1,0 +1,17 @@
+.tag {
+    display: flex;
+    align-items: center;
+    &:hover {
+        .tagDeleteBtn {
+            opacity: 1;
+        }
+    }
+    .tagDeleteBtn {
+        opacity: 0;
+    }
+    .tagDeleteBtn, .tagTextBtn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}

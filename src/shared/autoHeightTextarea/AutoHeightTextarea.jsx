@@ -31,3 +31,19 @@ export const AutoHeightTextarea = ({ description = '', onChange }) => {
     />
   );
 };
+
+// const HOC = (Component) => (props) => {
+//   useEffect(() => {
+//     fetch();
+//   }, []);
+
+//   return <Component {...props} />;
+// };
+
+// const Child = () => <AutoHeightTextarea />;
+
+// const Parent = () => {
+//   const WithUseEffect = HOC(Child, {});
+
+//   return <WithUseEffect />;
+// };

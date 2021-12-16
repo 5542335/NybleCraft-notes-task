@@ -7,38 +7,5 @@
     &:hover {
         height: min-content;
     }
-    .addTagBtn {
-        height: 25px;
-        width: 25px;
-        box-sizing: border-box;
-        border: none;
-        border-radius: 50%;
-        background-color: green;
-        font-size: 1.2rem;
-        color: white;
-        margin-right: 3px;
-        rotate: 45%;
-        &:hover {
-            cursor: pointer;
-            opacity: 0.8;
-        }
-    }
     
-    .tag {
-        display: flex;
-        align-items: center;
-        &:hover {
-            .tagDeleteBtn {
-                opacity: 1;
-            }
-        }
-        .tagDeleteBtn {
-            opacity: 0;
-        }
-        .tagDeleteBtn, .tagTextBtn {
-            border: none;
-            background-color: transparent;
-            cursor: pointer;
-        }
-    }
 }
