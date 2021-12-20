@@ -9,6 +9,7 @@ export const HighlightTextArea = ({ text, onChange }) => {
   const handleChange = useCallback(
     (e) => {
       onChange(e.currentTarget.innerText);
+      console.log(e.currentTarget.innerText);
     },
     [onChange],
   );

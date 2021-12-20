@@ -13,7 +13,13 @@ export const EditingDescription = ({ setIsEditDescription, description, id }) =>
   }, [setIsEditDescription]);
 
   const handleUpdateDescription = useCallback(() => {
-    updateNoteById(id, { description: newDescription || 'Без описания' });
+    const newTags =
+      newDescription
+        .replace(/#/g, ' #')
+        .split(' ')
+        .filter((item) => item.startsWith('#')) || [];
+
+    updateNoteById(id, { description: newDescription || 'Без описания', tags: newTags });
     handleClose();
   }, [id, updateNoteById, handleClose, newDescription]);
 
