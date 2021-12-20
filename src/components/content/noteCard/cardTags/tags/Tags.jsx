@@ -9,7 +9,7 @@ export const Tags = ({ tags, id }) => {
   const { notes, updateNoteById } = useNotes();
   const [selectedTag, setSelectedTag] = useState('');
 
-  const btnImage = <img src="https://img.icons8.com/doodle/10/000000/delete-sign.png" alt="" />;
+  const deleteButtonImage = <img src="https://img.icons8.com/doodle/10/000000/delete-sign.png" alt="" />;
 
   const editTag = (tag) => () => {
     setSelectedTag(tag);
@@ -26,14 +26,14 @@ export const Tags = ({ tags, id }) => {
     <>
       {tags.map((tag) =>
         tag === selectedTag ? (
-          <EditingTag tags={tags} setSelectedTag={setSelectedTag} tag={selectedTag} id={id} />
+          <EditingTag key={tag} tags={tags} setSelectedTag={setSelectedTag} tag={selectedTag} id={id} />
         ) : (
           <div key={tag} className={styles.tag}>
             <button type="button" className={styles.tagTextBtn} onClick={editTag(tag)}>
               {tag}
             </button>
             <button type="button" className={styles.tagDeleteBtn} onClick={deleteTag(tag)}>
-              {btnImage}
+              {deleteButtonImage}
             </button>
           </div>
         ),

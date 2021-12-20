@@ -60,9 +60,43 @@ describe('Component: AddTags', () => {
       expect(updateNoteByIdMock).toHaveBeenCalledWith('testId', { tags: ['#qwerty'] });
     });
 
-    it('should add tag without filled #', () => {});
+    it('should add tag without filled #', () => {
+      const updateNoteByIdMock = jest.fn();
 
-    it('should close input after adding', () => {});
+      useNotes.mockImplementation(() => ({
+        notes: [
+          {
+            id: 'testId',
+            tags: [],
+          },
+        ],
+        updateNoteById: updateNoteByIdMock,
+      }));
+
+      const component = shallow(<AddTag id="testId" />);
+
+      component.find(`.${styles.addTagBtn}`).simulate('click');
+
+      component
+        .find(InputForEditing)
+        .props()
+        .onChange({ target: { value: 'qwerty' } });
+
+      component.find(InputForEditing).props().confirmClick();
+
+      expect(updateNoteByIdMock).toHaveBeenCalledTimes(1);
+      expect(updateNoteByIdMock).toHaveBeenCalledWith('testId', { tags: ['#qwerty'] });
+    });
+
+    it('should close input after adding', () => {
+      const component = shallow(<AddTag />);
+
+      component.find(`.${styles.addTagBtn}`).simulate('click');
+
+      component.find(InputForEditing).props().confirmClick();
+
+      expect(component.find(InputForEditing)).toHaveLength(0);
+    });
   });
 
   it('should close input after click close button', () => {
